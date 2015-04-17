@@ -226,7 +226,8 @@ gulp.task('cleanall', function(cb) {
 });
 
 // copy js、html、fonts到dist
-var things2copy = ['*.{html,ico}', 'libs/**/*.*', 'js/*.js', 'img/static/**/' + configs.imgType,"fonts/*.*"];
+var things2copy = ['*.{html,ico}', 'libs/**/*.*', 'js/*.js', 'img/static/**/' + configs.imgType,
+                    "fonts/*.*","components/**/*.{html,css}"];
 
 gulp.task('copy', function() {
     return gulp.src(things2copy, opt)
@@ -273,6 +274,7 @@ gulp.task('compass', function() {
 // packer js using webpack
 var js2webpack = src + 'js/**/*.js';
 var tpl2webpack = src + 'tpl/**/*.*';
+var com2webpack = src + 'components/**/*.js';
 
 gulp.task('webpack', function() {
     !isWebpackInit && initWebpackConfig();
@@ -368,6 +370,7 @@ gulp.task('watch', function() {
     gulp.watch(image2copy, opt, ['img-rev']);
     gulp.watch(scss2compile, opt, ['compass']);
     gulp.watch(js2webpack, ['webpack']);
+    gulp.watch(com2webpack, ['webpack']);
     gulp.watch(tpl2webpack, ['webpack']);
 });
 

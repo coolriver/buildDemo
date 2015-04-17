@@ -6,7 +6,8 @@ module.exports = {
     // webpack: js 模块化相关
     webpack: {
         entry: {
-             index: './src/js/index/demo.js'
+             index: './src/js/index/demo.js',
+             "com-alert-dialog" : './src/components/AlertDialog/com-alert-dialog.js'
 /*            component: './src/js/component.js',
             zepto: './src/js/qmv/zepto.js',
             jquery: './src/js/qmv/jquery.min.js'*/
