@@ -1,0 +1,124 @@
+.ui-dialog {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: none;
+  z-index: 10000;
+  /* Larger then the z-index value of .ui-backdrop class */
+  overflow: auto;
+  overflow-y: scroll;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+}
+
+ol, ul  {
+    list-style: none;
+}
+
+/* ActionSheet */
+
+.ui-actionsheet {
+    width: 100%;
+    padding: 0 8px;
+    border: 0;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+
+    position: absolute;
+    bottom: 0;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+
+    -webkit-transition: 200ms ease-in-out;
+    transition: 200ms ease-in-out;
+
+    visibility: hidden;
+
+    backface-visibility: hidden;
+}
+
+.ui-dialog.js-show > .ui-actionsheet {
+    opacity: 1;
+    visibility: visible;
+
+    -webkit-transform: translate3d(0, 0, 0) scale(1) !important;
+    transform: translate3d(0, 0, 0) scale(1) !important;
+}
+
+.ui-actionsheet li, .ui-actionsheet-cancel {
+    display: block;
+    list-style-type: none;
+
+    color: #007AFF;
+    font-size: 18px;
+    line-height: 28px;
+    text-align: center;
+    background-color: #ECECEC;
+
+    padding: 6px 0;
+    border-bottom: 1px solid rgba(180, 180, 180, 0.5);
+}
+
+.ui-actionsheet li:first-child {
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+}
+
+.ui-actionsheet li:last-child {
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+}
+
+.ui-actionsheet-cancel {
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+    margin: .5em 0;
+}
+
+/* Backdrop */
+.js-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    visibility: hidden;
+    background-color: #000000;
+    display: block;
+
+    /*
+     Only add a transitional effect for opacity property
+     avoid emulate position fixed trigger transitional effect on height
+    */
+    -webkit-transition: opacity 200ms;
+    transition: opacity 200ms;
+
+    z-index: 9999;
+}
+
+.js-backdrop.js-effect-fade {
+    opacity: 0;
+}
+
+.js-backdrop.js-show {
+    visibility: visible;
+    opacity: .5;
+}
+
+/* /Backdrop */
+
+/* /ActionSheet */
+
+/*slide For ActionSheet */
+
+.js-effect-from-bottom .js-dialog-content.ui-actionsheet {
+    -webkit-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0);
+}

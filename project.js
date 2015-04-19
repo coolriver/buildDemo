@@ -8,7 +8,8 @@ module.exports = {
         entry: {
              index: './src/js/index/demo.js',
              "com-alert-dialog" : './src/components/AlertDialog/com-alert-dialog.js',
-             "com-notify-dialog" : './src/components/notifyDialog/com-notify-dialog.js'
+             "com-notify-dialog" : './src/components/NotifyDialog/com-notify-dialog.js',
+             "com-action-sheet" : './src/components/ActionSheet/com-action-sheet.js'
 /*            component: './src/js/component.js',
             zepto: './src/js/qmv/zepto.js',
             jquery: './src/js/qmv/jquery.min.js'*/

@@ -8,20 +8,22 @@ if(os.ios < 5){
 }
 var dismissDialogEventName = tapEvent + '.dismiss.dialog';
 
-var $target = $("#myAlert");
-var options  = {
-	toggle: "dialog", 
-	type: "alert", 
-	effect: "from-left", 
+var $target = $("#myActionsheet");
+var options  = { 
+	type: "actionsheet", 
+	effect: "from-bottom", 
 	cache: false,
 	backdrop: true,
 	show: true,
 	expires: 0,
-	yes: function(){
-		console.log("select yes!");
+	delete: function(){
+		console.log("select delete!");
 	},
-	no: function(){
-		console.log("select no!");
+	send: function(){
+		console.log("select send!");
+	},
+	cancel: function(){
+		console.log("select cancel");
 	},
 	_default: function(){
 		console.log("nothing");
