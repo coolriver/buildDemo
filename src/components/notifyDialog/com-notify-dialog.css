@@ -1,0 +1,72 @@
+p{
+  padding: 0;
+  margin: 0;
+}
+
+.ui-dialog {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: none;
+  z-index: 10000;
+  /* Larger then the z-index value of .ui-backdrop class */
+  overflow: auto;
+  overflow-y: scroll;
+}
+
+/* Notify  TODO */
+.ui-notify {
+    border: 0;
+    border-radius: 0 0 5px 5px;
+
+    position: absolute;
+    top: 0;
+    left: 10px;
+    right: 10px;
+
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+
+    -webkit-transition: 300ms ease-in-out;
+    transition: 300ms ease-in-out;
+
+    /*visibility: hidden;*/  /* I don't know why on Android 4.0.3 visibility: visible make it not work */
+    backface-visibility: hidden;
+
+    opacity: 0;
+
+    background: rgba(0, 0, 0, 0.5);
+
+    color: #fff;
+    font-size: 14px;
+    line-height: 40px;
+    text-align: center;
+}
+
+.ui-dialog.js-show > .ui-notify {
+    opacity: 1;
+    visibility: visible;
+
+    -webkit-transform: translate3d(0, 0, 0) rotateX(0deg) !important;
+    transform: translate3d(0, 0, 0) rotateX(0deg) !important;
+}
+
+
+/* /Notify */
+
+/* slide For Notify */
+.js-effect-from-top .js-dialog-content.ui-notify {
+    -webkit-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0);
+}
+
+.js-effect-drop-down .js-dialog-content.ui-notify {
+    /* Set origin for drop down effect */
+    -webkit-transform-origin: center top;
+    transform-origin: center top;
+
+    -webkit-transform: rotateX(-90deg);
+    transform: rotateX(-90deg);
+}

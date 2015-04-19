@@ -8,25 +8,14 @@ if(os.ios < 5){
 }
 var dismissDialogEventName = tapEvent + '.dismiss.dialog';
 
-var $target = $("#myAlert");
-var options  = {
-	toggle: "dialog", 
-	type: "alert", 
-	effect: "from-left", 
+var $target = $("#myNotify");
+var options  = { 
+	type: "notity", 
+	effect: "from-top", 
 	cache: false,
 	backdrop: true,
 	show: true,
-	expires: 0,
-	yes: function(){
-		console.log("select yes!");
-	},
-	no: function(){
-		console.log("select no!");
-	}  
+	expires: 2000
 };
 var dialog = new $.Dialog($target,options);
-$target.on(dismissDialogEventName,function(e){
-	var op = $(e.target || e.srcElement).data('op');
-	options[op]();
-})
 if (options.show)	dialog.show();
